@@ -5,9 +5,31 @@
     padding: 10px;
     text-align: right;
 }*/
+article{
+    grid-column: 2 /span 4;
+}
+aside{
+    background-color: darkgray;
+}
+aside ul{
+    margin-top: 10px;
+}
+aside ul li{
+    margin-bottom: 13px;
+}
+aside ul li a{
+    color: rgb(58, 58, 57);
+    font-weight: 700;
+    font-size: large;
+    text-decoration: none;
+    padding: 5px 10px 5px 10px;
+}
+aside ul li a:hover{
+    text-decoration: underline;
+}
 header{
     display: grid;
-    grid-template-columns: repeat(2, 50%);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3,40px);
     background-color: #E5E7E9;
     background-image: radial-gradient(rgb(215, 213, 213), rgb(58, 58, 57), rgb(96, 96, 96));
@@ -40,8 +62,36 @@ nav ul li a:hover{
     background-color: beige;
 }
 
+section{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 5px;
+    padding-top: 1.25rem;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+}
+
 /* clases generales de la pagina */
 .instagram{
     width: auto;
     display: inline-block;
+}
+
+.noticias a{
+    text-decoration: none;
+}
+.noticias a:hover{
+    text-decoration: underline;
+}
+.texto p{
+    color:darkslategray;
+    line-height: 20px;
+}
+.title-noticia{
+    font-size: 1.3em;
+    font-weight: large;
+    text-align: center;
+    color: blue;
+    display: block;
+    margin-bottom: 10px;
 }
