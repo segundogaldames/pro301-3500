@@ -1,3 +1,6 @@
+<?php
+    $saludo = 'Hola mundo del programador';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +18,9 @@
 
 <body>
     <header>
-        <div></div>
+        <div>
+            <?= $saludo; ?>
+        </div>
         <div></div>
         <div></div>
         <div>Hola</div>
