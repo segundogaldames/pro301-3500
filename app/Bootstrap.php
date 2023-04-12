@@ -15,7 +15,7 @@ class Bootstrap
 
 			if(is_readable($routeModule)):
 				require_once $routeModule;
-				$routeController = ROOT . 'modules' . DS . $modulo . DS . 'controllers' . DS . $controller . '.php';
+				$routeController = ROOT . 'modules' . DS . $module . DS . 'controllers' . DS . $controller . '.php';
 			else:
 				header('Location: ' . BASE_URL . 'error/error/');
 
