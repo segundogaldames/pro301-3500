@@ -16,33 +16,33 @@ class View
         $menu = array (
             array (
                 'id' => 'inicio',
-                'title' => 'inicio',
+                'title' => 'Inicio',
                 'link' => BASE_URL
             ),
             array (
-                'id' => 'post',
-                'titulo' => 'Post',
-                'enlace' => BASE_URL . 'post'
+                'id' => 'about',
+                'title' => 'Acerca De',
+                'link' => BASE_URL . 'about'
             )
         );
 
-        if(Session::get('autenticado')){
+        if(Session::get('authenticate')){
             $menu[] = array (
                 'id' => 'login',
-                'titulo' => 'Cerrar Sesion',
-                'enlace' => BASE_URL . 'login/cerrar'
+                'title' => 'Cerrar Sesion',
+                'link' => BASE_URL . 'login/cerrar'
             );
         }
         else{
             $menu[] = array (
                 'id' => 'login',
-                'titulo' => 'Iniciar Sesion',
-                'enlace' => BASE_URL . 'login'
+                'title' => 'Login',
+                'link' => BASE_URL . 'login'
             );
             $menu[] = array (
                 'id' => 'registro',
-                'titulo' => 'Registrar Usuario',
-                'enlace' => BASE_URL . 'registro'
+                'title' => 'Registrar Usuario',
+                'link' => BASE_URL . 'usuarios/create'
             );
         }
 
@@ -63,7 +63,7 @@ class View
         );
 
 
-        $rutaView = ROOT . 'views' . DS . $this->_controlador . DS . $vista . '.phtml';
+        $rutaView = ROOT . 'views' . DS . $this->_controller . DS . $view . '.php';
 
         //para luego probar
         //$template = file_get_contents($rutaView);
@@ -79,7 +79,7 @@ class View
         }
         else
         {
-            throw new Exception('Error de vista');
+            header('Location: ' . BASE_URL . 'error/error');
         }
     }
 
@@ -89,11 +89,11 @@ class View
         {
             for ($i=0; $i < count($js); $i++)
             {
-                $this->_js[] = BASE_URL . 'views/' . $this->_controlador . '/js/' . $js[$i] . '.js';
+                $this->_js[] = BASE_URL . 'views/' . $this->_controller . '/js/' . $js[$i] . '.js';
 
             }
         } else{
-            throw new Exception('Error de js');
+            header('Location: ' . BASE_URL . 'error/error');
         }
     }
 
