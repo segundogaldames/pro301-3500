@@ -4,6 +4,8 @@ class Bootstrap
 {
 	public static function run(Request $request)
 	{
+		#define la estructura de la url del sistema
+		#dominio/controlador/metodo/argumentos
 		$module = $request->getModule();
 		$controller = $request->getController() . 'Controller';
 
