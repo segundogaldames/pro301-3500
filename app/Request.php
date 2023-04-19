@@ -4,6 +4,7 @@ class Request
     private $_controlador;
     private $_metodo;
     private $_argumentos;
+    private $_module;
 
     public function __construct()
     {
@@ -35,12 +36,17 @@ class Request
             $this->_argumentos = array();
         }
     }
-    public function getControlador()
+    public function getModule()
+    {
+        return $this->_module;
+    }
+
+    public function getController()
     {
         return $this->_controlador;
     }
 
-    public function getMetodo()
+    public function getMethod()
     {
         return $this->_metodo;
     }
