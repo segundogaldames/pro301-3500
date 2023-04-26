@@ -71,6 +71,34 @@ section{
     padding-right: 0.625rem;
 }
 
+/*Clases generales del sitio*/
+.btn{
+    padding: 0.7em;
+    display: inline-block;
+    margin: 0.7em;
+    text-decoration: none;
+    border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -ms-border-radius: 3px 3px 3px 3px;
+    -o-border-radius: 3px 3px 3px 3px;
+}
+.btn-primary{
+    background-color: blue;
+    color: aliceblue;
+    font-weight: bold;
+}
+.btn-primary:hover{
+    background-color: rgb(88, 88, 246);
+}
+.contenedor{
+    text-align: center;
+}
+.error{
+    margin: 0px auto;
+    width: 60%;
+    display: inline-block;
+}
 /* clases generales de la pagina */
 .instagram{
     width: auto;
@@ -86,6 +114,12 @@ section{
 .texto p{
     color:darkslategray;
     line-height: 20px;
+}
+.title-error{
+    color: red;
+    font-size: 1.5em;
+    font-weight: bolder;
+    margin-bottom: 1.2em;
 }
 .title-noticia{
     font-size: 1.3em;
