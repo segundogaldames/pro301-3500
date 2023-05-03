@@ -1,7 +1,5 @@
 <!--seccion principal-->
 <section>
-
-
     <div class="noticias">
         <div class="contenedor">
             <div class="error">
@@ -15,5 +13,4 @@
             </div>
         </div>
     </div>
-
 </section>
