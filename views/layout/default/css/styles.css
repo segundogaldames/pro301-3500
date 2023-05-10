@@ -27,6 +27,11 @@ aside ul li a{
 aside ul li a:hover{
     text-decoration: underline;
 }
+h1{
+    color: grey;
+    font-size: 1.8em;
+    margin-bottom: 0.3em;
+}
 header{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -64,7 +69,7 @@ nav ul li a:hover{
 
 section{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: 1fr 5fr;
     grid-gap: 5px;
     padding-top: 1.25rem;
     padding-left: 0.625rem;
@@ -110,6 +115,29 @@ section{
 }
 .noticias a:hover{
     text-decoration: underline;
+}
+.table{
+    width: 100%;
+    margin-bottom: 0.6em;
+    border-collapse: collapse;
+
+}
+.table th{
+    font-weight: bolder;
+    padding: 0.3em;
+    text-align: left;
+    background-color: gray;
+    color: antiquewhite;
+}
+.table td{
+    padding: 0.3em;
+}
+.table th,.table td{
+    border: 1px solid rgb(201, 199, 199);
+    height: 1.4em;
+}
+.table tr:hover{
+    background-color: rgb(203, 203, 203);
 }
 .texto p{
     color:darkslategray;

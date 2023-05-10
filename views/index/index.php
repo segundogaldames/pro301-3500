@@ -3,7 +3,7 @@
     <aside>
         <ul>
             <li>
-                <a href="#">Categoría 1</a>
+                <a href="<?= $_layoutParams['root'] ?>roles">Roles</a>
             </li>
             <li>
                 <a href="#">Categoría 2</a>

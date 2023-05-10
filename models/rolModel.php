@@ -9,7 +9,7 @@ class rolModel extends Model
 
     public function getRoles()
     {
-        $roles = $this->_db->query("SELECT id, nombre FROM roles ORDER BY nombre");
+        $roles = $this->_db->query("SELECT id, nombre FROM roles ORDER BY id DESC");
         return $roles->fetchall();
     }
 
