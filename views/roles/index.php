@@ -18,31 +18,35 @@
     </aside>
 
     <div>
-        <h1>Lista de Roles</h1>
-
-        <pre>
-            <?php print_r($this->roles); ?>
-        </pre>
+        <h1>
+            Lista de Roles
+            <a href="<?= $_layoutParams['root'] ?>roles/create">Nuevo Rol</a>
+        </h1>
 
         <?php if(isset($this->roles) && count($this->roles)): ?>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Rol</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach($this->roles as $rol): ?>
-                <tr>
-                    <td><?= $rol['id'] ?></td>
-                    <td><?= $rol['nombre'] ?></td>
-                    <td>Botones</td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Rol</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($this->roles as $rol): ?>
+                    <tr>
+                        <td><?= $rol['id'] ?></td>
+                        <td><?= $rol['nombre'] ?></td>
+                        <td>
+                            <a href="<?= $_layoutParams['root'] ?>roles/show/<?= $rol['id'] ?>">Ver</a>
+                            <a href="<?= $_layoutParams['root'] ?>roles/edit/<?= $rol['id'] ?>">Editar</a>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <p class="text-info">No hay roles disponibles</p>
         <?php endif; ?>
     </div>
 

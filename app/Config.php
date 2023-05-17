@@ -1,6 +1,6 @@
 <?php
 //este archivo contiene configuraciones generales del sistema
-define('BASE_URL','http://localhost:8080/pro301-3500/');
+define('BASE_URL','http://localhost/pro301-3500/');
 define('DEFAULT_CONTROLLER','index');
 define('DEFAULT_LAYOUT','default');
 define('APP_NAME','App_Noticias');
@@ -17,6 +17,6 @@ define('KEY','Noticias_APP');
 define('DB_DRIVER','mysql');
 define('DB_HOST','localhost');#127.0.0.1
 define('DB_USER','root');
-define('DB_PASS','1234');
+define('DB_PASS','root.1234');
 define('DB_NAME','pro3013500');
 define('DB_CHAR','utf8');

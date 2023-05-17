@@ -15,4 +15,17 @@ class rolesController extends Controller
         $this->_view->roles = $this->_rol->getRoles();
         $this->_view->render('index');
     }
+
+    public function show($id = null)
+    {
+        $this->_view->titulo = 'Roles';
+        $this->_view->rol = $this->_rol->getRolId($this->filtrarInt($id));
+        $this->_view->render('show');
+    }
+
+    public function create()
+    {
+        $this->_view->titulo = 'Roles';
+        $this->_view->render('create');
+    }
 }
