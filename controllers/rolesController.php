@@ -26,6 +26,34 @@ class rolesController extends Controller
     public function create()
     {
         $this->_view->titulo = 'Roles';
+        $this->_view->send = HASH_CTRL;
+        $this->_view->process = 'roles/store';
         $this->_view->render('create');
+    }
+
+    public function store()
+    {
+        if ($this->getPostParam('send') != HASH_CTRL) {
+            $this->redireccionar('error/error');
+        }
+
+        if (!$this->getTexto('nombre')) {
+            Session::set('msg_error','Ingrese el nombre del rol');
+            $this->redireccionar('roles/create');
+        }
+
+        $rol = $this->_rol->getRolNombre($this->getTexto('nombre'));
+
+        if ($rol) {
+            Session::set('msg_error','El rol ingresado ya existe... intente con otro');
+            $this->redireccionar('roles/create');
+        }
+
+        $rol = $this->_rol->addRol($this->getTexto('nombre'));
+
+        if ($rol) {
+            Session::set('msg_success','El rol se ha registrado correctamente');
+            $this->redireccionar('roles');
+        }
     }
 }

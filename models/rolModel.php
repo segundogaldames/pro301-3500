@@ -25,6 +25,8 @@ class rolModel extends Model
 
     public function getRolNombre($nombre)
     {
+        $nombre = ucfirst(strtolower($nombre));
+        
         $rol = $this->_db->prepare("SELECT id FROM roles WHERE nombre = ?");
         $rol->bindParam(1, $nombre);
         $rol->execute();
@@ -34,6 +36,8 @@ class rolModel extends Model
 
     public function addRol($nombre)
     {
+        $nombre = ucfirst(strtolower($nombre));
+        
         $rol = $this->_db->prepare("INSERT INTO roles(nombre, created_at, updated_at) VALUES(?, now(), now())");
         $rol->bindParam(1, $nombre);
         $rol->execute();
