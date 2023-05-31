@@ -8,42 +8,50 @@
     <title>
         <?php if(isset($this->titulo)) echo $this->titulo; ?>
     </title>
-    <link rel="stylesheet" href="<?= $_layoutParams['ruta_css'] ?>reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= $_layoutParams['ruta_css'] ?>styles.css">
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <!--cabecera de la pagina-->
     <header>
-        <div>
-
-        </div>
-        <div></div>
-        <div></div>
-        <div>Hola</div>
-        <div></div>
-        <div style="text-align: end;margin-top: 10px;">
-            <div class="instagram">
-                <a href="https://www.instagram.com/profesorgaldames/" target="_blank">
-                    <img src="img/img-instagram.jpg" alt="Instagram" width="25">
-                </a>
+        <img src="<?= $_layoutParams['ruta_img'] ?>fondo-header.jpg" width="100%" height="400" alt="">
+    </header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="<?= $_layoutParams['root'] ?>">Noticias</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="<?= $_layoutParams['root'] ?>">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown
+                    </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
             </div>
         </div>
-
-    </header>
-    <nav>
-        <ul>
-            <li>
-                <a href="<?= $_layoutParams['root'] ?>">Inicio</a>
-            </li>
-            <li>
-                <a href="#">Acerca de</a>
-            </li>
-            <li>
-                <a href="<?= $_layoutParams['root'] ?>contacto/contacto">Contacto</a>
-            </li>
-        </ul>
     </nav>

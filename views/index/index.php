@@ -1,93 +1,18 @@
 <!--seccion principal-->
-<section>
-    <aside>
-        <ul>
-            <li>
-                <a href="<?= $_layoutParams['root'] ?>roles">Roles</a>
-            </li>
-            <li>
-                <a href="#">Categoría 2</a>
-            </li>
-            <li>
-                <a href="#">Categoría 3</a>
-            </li>
-            <li>
-                <a href="#">Categoría 4</a>
-            </li>
-        </ul>
-    </aside>
-
-    <div class="noticias">
-        <a href="#">
-            <div class="articulo">
-                <div class="imagen">
-                    <img src="img/noticias/noticia_1.jpeg" alt="" width="100%">
-                </div>
-                <div class="title-articulo">
-                    <h1 class="title-noticia">Titulo de la noticia</h1>
-                </div>
-                <div class="texto">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae similique laborum amet
-                        accusantium, harum ducimus distinctio autem, facere inventore nam nobis quod atque ipsum
-                        blanditiis sed dolores, adipisci iure consequuntur.</p>
+<div class="container-fluid mt-3" >
+    <div class="row" >
+        <div class="col-md-2" >
+            <?php include_once ROOT . 'views' . DS . 'layout' . DS . DEFAULT_LAYOUT . DS . 'sidebar.php' ?>
+        </div>
+        <div class="col-md-10" >
+            <div class="card col-md-3">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
-        </a>
-
+        </div>
     </div>
-    <div class="noticias">
-        <a href="#">
-            <div class="articulo">
-                <div class="imagen">
-                    <img src="img/noticias/noticia_1.jpeg" alt="" width="100%">
-                </div>
-                <div class="title-articulo">
-                    <h1 class="title-noticia">Titulo de la noticia</h1>
-                </div>
-                <div class="texto">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae similique laborum amet
-                        accusantium, harum ducimus distinctio autem, facere inventore nam nobis quod atque ipsum
-                        blanditiis sed dolores, adipisci iure consequuntur.</p>
-                </div>
-            </div>
-        </a>
-
-    </div>
-    <div class="noticias">
-        <a href="#">
-            <div class="articulo">
-                <div class="imagen">
-                    <img src="img/noticias/noticia_1.jpeg" alt="" width="100%">
-                </div>
-                <div class="title-articulo">
-                    <h1 class="title-noticia">Titulo de la noticia</h1>
-                </div>
-                <div class="texto">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae similique laborum amet
-                        accusantium, harum ducimus distinctio autem, facere inventore nam nobis quod atque ipsum
-                        blanditiis sed dolores, adipisci iure consequuntur.</p>
-                </div>
-            </div>
-        </a>
-
-    </div>
-    <div class="noticias">
-        <a href="#">
-            <div class="articulo">
-                <div class="imagen">
-                    <img src="img/noticias/noticia_1.jpeg" alt="" width="100%">
-                </div>
-                <div class="title-articulo">
-                    <h1 class="title-noticia">Titulo de la noticia</h1>
-                </div>
-                <div class="texto">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae similique laborum amet
-                        accusantium, harum ducimus distinctio autem, facere inventore nam nobis quod atque ipsum
-                        blanditiis sed dolores, adipisci iure consequuntur.</p>
-                </div>
-            </div>
-        </a>
-
-    </div>
-
-</section>
+</div>
