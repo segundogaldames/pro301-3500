@@ -56,4 +56,37 @@ class rolesController extends Controller
             $this->redireccionar('roles');
         }
     }
+
+    public function edit($id = null)
+    {
+        $this->_view->titulo = 'Roles';
+        $this->_view->send = HASH_CTRL;
+        $this->_view->rol = $this->_rol->getRolId($this->filtrarInt($id));
+        $this->_view->process = "roles/update/{$id}";
+        $this->_view->render('edit');
+    }
+
+    public function update($id = null)
+    {
+        //print_r($_POST);exit;
+        if ($this->getPostParam('send') != HASH_CTRL) {
+            $this->redireccionar('error/error');
+        }
+
+        if ($this->getAlphaNum('_method') != 'PUT') {
+            $this->redireccionar('error/error');
+        }
+
+        if (!$this->getTexto('nombre')) {
+            Session::set('msg_error','Ingrese el nombre del rol');
+            $this->redireccionar('roles/edit/' . $id);
+        }
+
+        $rol = $this->_rol->editRol($this->filtrarInt($id), $this->getTexto('nombre'));
+
+        if ($rol) {
+            Session::set('msg_success','El rol se ha modificado correctamente');
+            $this->redireccionar('roles/show/' . $id);
+        }
+    }
 }

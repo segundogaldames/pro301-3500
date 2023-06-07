@@ -6,10 +6,10 @@
         </div>
         <div class="col-md-10" >
             <div class="col-md-6" >
-                <h1>Nuevo Rol</h1>
+                <h1>Editar Rol</h1>
                 <?php include_once ROOT . 'views' . DS . 'partials' . DS . '_mensajes.php' ?>
-    
                 <?php include_once ROOT . 'views' . DS . 'roles' . DS . '_form.php' ?>
+                
             </div>
         </div>
     </div>
