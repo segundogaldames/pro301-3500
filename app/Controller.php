@@ -103,11 +103,10 @@ abstract class Controller
         if(isset($_POST[$clave]) && !empty($_POST[$clave])){
             $_POST[$clave] = strip_tags($_POST[$clave]);
 
-            if(!get_magic_quotes_gpc()){
-                $_POST[$clave] = mysql_escape_string($_POST[$clave]);
-            }
             return trim($_POST[$clave]);
         }
+
+        return '';
     }
 
     protected function getAlphaNum($clave)
