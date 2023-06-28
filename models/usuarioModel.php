@@ -16,7 +16,7 @@ class usuarioModel extends Model
     public function getUsuarioId($id)
     {
         $id = (int) $id;
-        $usuario = $this->_db->prepare("SELECT u.id, u.run, u.nombre, u.email, u.activo, r.nombre as rol, u.created_at, u.updated_at FROM usuarios u INNER JOIN roles r ON u.rol_id = r.id WHERE u.id = ?");
+        $usuario = $this->_db->prepare("SELECT u.id, u.run, u.nombre, u.email, u.activo, u.rol_id, r.nombre as rol, u.created_at, u.updated_at FROM usuarios u INNER JOIN roles r ON u.rol_id = r.id WHERE u.id = ?");
         $usuario->bindParam(1, $id);
         $usuario->execute();
 
@@ -28,6 +28,18 @@ class usuarioModel extends Model
         
         $usuario = $this->_db->prepare("SELECT id FROM usuarios WHERE run = ?");
         $usuario->bindParam(1, $run);
+        $usuario->execute();
+
+        return $usuario->fetch();
+    }
+
+    public function getUsuarioEmailPassword($email, $password)
+    {
+        $password = Hash::getHash('sha256', $password, HASH_KEY);
+        
+        $usuario = $this->_db->prepare("SELECT u.id, u.nombre, u.email, r.nombre as rol FROM usuarios u INNER JOIN roles r ON u.rol_id = r.id WHERE u.email = ? AND u.password = ? AND u.activo = 1");
+        $usuario->bindParam(1, $email);
+        $usuario->bindParam(2, $password);
         $usuario->execute();
 
         return $usuario->fetch();
@@ -54,7 +66,7 @@ class usuarioModel extends Model
     {
         $id = (int) $id;
 
-        $usuario = $this->_db->prepare("UPDATE usuarios SET run = ?, $nombre = ?, email = ?, activo = ?, rol_id = ?, updated_at = now() WHERE id = ?");
+        $usuario = $this->_db->prepare("UPDATE usuarios SET run = ?, nombre = ?, email = ?, activo = ?, rol_id = ?, updated_at = now() WHERE id = ?");
         $usuario->bindParam(1, $run);
         $usuario->bindParam(2, $nombre);
         $usuario->bindParam(3, $email);

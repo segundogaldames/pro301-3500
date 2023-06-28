@@ -13,6 +13,7 @@ class usuariosController extends Controller
 
     public function index()
     {
+        $this->validateAdminEditor();
         $this->_view->titulo = 'Usuarios';
         $this->_view->usuarios = $this->_usuario->getUsuarios();
         $this->_view->render('index');
@@ -20,6 +21,7 @@ class usuariosController extends Controller
 
     public function show($id = null)
     {
+        $this->validateAdminEditor();
         $this->_view->titulo = 'Usuarios';
         $this->_view->usuario = $this->_usuario->getUsuarioId($this->filtrarInt($id));
         $this->_view->render('show');
@@ -27,9 +29,11 @@ class usuariosController extends Controller
 
     public function create()
     {
+        $this->validateAdmin();
         $this->_view->titulo = 'Usuarios';
         $this->_view->send = HASH_CTRL;
         $this->_view->roles = $this->_rol->getRoles();
+        $this->_view->action = 'create';
         $this->_view->process = 'usuarios/store';
         $this->_view->render('create');
     }
@@ -39,6 +43,8 @@ class usuariosController extends Controller
         if ($this->getPostParam('send') != HASH_CTRL) {
             $this->redireccionar('error/error');
         }
+
+        $this->validateAdmin();
 
         if (!$this->getTexto('run')) {
             Session::set('msg_error','Ingrese el RUN del usuario');
@@ -80,7 +86,7 @@ class usuariosController extends Controller
 
         $usuario = $this->_usuario->addUsuario(
             $this->getTexto('run'), 
-            $this->getAlphaNum('nombre'), 
+            $this->getTexto('nombre'), 
             $this->getPostParam('email'), 
             $this->getSql('password'), 
             $this->getInt('rol')
@@ -94,10 +100,12 @@ class usuariosController extends Controller
 
     public function edit($id = null)
     {
+        $this->validateAdmin();
         $this->_view->titulo = 'Usuarios';
         $this->_view->send = HASH_CTRL;
         $this->_view->usuario = $this->_usuario->getUsuarioId($this->filtrarInt($id));
         $this->_view->roles = $this->_rol->getRoles();
+        $this->_view->action = 'edit';
         $this->_view->process = "usuarios/update/{$id}";
         $this->_view->render('edit');
     }
@@ -112,6 +120,8 @@ class usuariosController extends Controller
         if ($this->getAlphaNum('_method') != 'PUT') {
             $this->redireccionar('error/error');
         }
+
+        $this->validateAdmin();
 
         if (!$this->getTexto('run')) {
             Session::set('msg_error','Ingrese el RUN del usuario');
@@ -142,7 +152,7 @@ class usuariosController extends Controller
         $usuario = $this->_usuario->editUsuario(
             $this->filtrarInt($id),
             $this->getTexto('run'), 
-            $this->getAlphaNum('nombre'), 
+            $this->getTexto('nombre'), 
             $this->getPostParam('email'), 
             $this->getInt('activo'), 
             $this->getInt('rol')

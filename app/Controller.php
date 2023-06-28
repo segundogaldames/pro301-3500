@@ -127,6 +127,42 @@ abstract class Controller
 
         return true;
     }
+
+    protected function validateAdmin()
+    {
+        $this->validateSession();
+        Session::get('tiempo');
+        $this->validateRoles(['Administrador']);
+    }
+
+    protected function validateAdminEditor()
+    {
+        $this->validateSession();
+        Session::get('tiempo');
+        $this->validateRoles(['Administrador','Editor']);
+    }
+
+    protected function validateRoles($roles)
+    {
+        if (is_array($roles)) {
+            foreach ($roles as $rol) {
+                if (Session::get('user_rol') == $rol) {
+                    return true;
+                }
+            }
+        }
+
+        $this->redireccionar('error/denied');
+    }
+
+    protected function validateSession()
+    {
+        if (Session::get('authenticate')) {
+            return true;
+        }
+
+        $this->redireccionar('login/login');
+    }
 }
 
 ?>

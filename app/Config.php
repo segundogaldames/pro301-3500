@@ -4,6 +4,7 @@ define('BASE_URL','http://localhost/pro301-3500/');
 define('DEFAULT_CONTROLLER','index');
 define('DEFAULT_LAYOUT','default');
 define('APP_NAME','App_Noticias');
+define('SESSION_TIME', 10);
 
 #define un hash para encriptar contraseñas
 define('HASH_KEY','RFXuU62HVm02nK/72YacCavycwOoX1r4zo07b6lGBGytd+A7OosUeCFw6oB6FI2XmSDHn+gOCQglxnGhDZCe6g==');
