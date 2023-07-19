@@ -5,7 +5,7 @@ class rolesController extends Controller
 
     public function __construct()
     {
-        $this->validateAdmin();
+        #$this->validateAdmin();
         parent::__construct();
         $this->_rol = $this->loadModel('rol');
     }

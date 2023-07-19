@@ -142,6 +142,27 @@ abstract class Controller
         $this->validateRoles(['Administrador','Editor']);
     }
 
+    protected function validateAdminEditorPeriodista()
+    {
+        $this->validateSession();
+        Session::get('tiempo');
+        $this->validateRoles(['Administrador','Editor','Periodista']);
+    }
+
+    protected function vaidatePeriodista()
+    {
+        $this->validateSession();
+        Session::get('tiempo');
+        $this->validateRoles(['Periodista']);
+    }
+
+    protected function validateEditorPeriodista()
+    {
+        $this->validateSession();
+        Session::get('tiempo');
+        $this->validateRoles(['Editor','Periodista']);
+    }
+
     protected function validateRoles($roles)
     {
         if (is_array($roles)) {
